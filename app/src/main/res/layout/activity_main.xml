@@ -28,6 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/idTVHeading"
+        android:background="@drawable/play"
         android:layout_centerInParent="true" />
 
 </RelativeLayout>

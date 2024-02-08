@@ -1,5 +1,6 @@
 package com.naqb.videoplayer;
 
+import android.annotation.SuppressLint;
 import android.net.Uri;
 import android.os.Bundle;
 import android.widget.MediaController;
@@ -10,6 +11,7 @@ public class MainActivity extends AppCompatActivity {
 
     VideoView videoView;
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +29,18 @@ public class MainActivity extends AppCompatActivity {
         mediaController.setMediaPlayer(videoView);
         videoView.setMediaController(mediaController);
 
-        videoView.start();
+        videoView.setOnPreparedListener(mp -> videoView.setBackgroundResource(R.drawable.play));
+        videoView.setOnCompletionListener(mp -> videoView.setBackground(null));
+
+        videoView.setOnTouchListener((v, event) -> {
+            if (videoView.isPlaying()) {
+                videoView.pause();
+                videoView.setBackgroundResource(R.drawable.play);
+            } else {
+                videoView.start();
+                videoView.setBackground(null);
+            }
+            return false;
+        });
     }
 }
