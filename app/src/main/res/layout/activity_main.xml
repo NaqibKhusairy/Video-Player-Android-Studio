@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/black"
     tools:context=".MainActivity">
 
     <!--on below line we are creating a simple text view-->
@@ -18,7 +19,7 @@
         android:padding="10dp"
         android:text="Video View in Android"
         android:textAlignment="center"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="bold" />
 
